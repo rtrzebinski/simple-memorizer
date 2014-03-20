@@ -5,6 +5,21 @@
             $("#questionValueDiv").removeClass("hidden");
             $("#showAnswerButton").hide();
         });
+
+        $("body").keyup(function(ev) {
+            if (ev.which == 32) {
+                // 32 = space
+                $("#showAnswerButton").click();
+            }
+            if (ev.which == 71) {
+                // 71 = g
+                $("#goodAnswerButton").click();
+            }
+            if (ev.which == 66) {
+                // 66 = b
+                $("#badAnswerButton").click();
+            }
+        });
     });
 </script>
 
@@ -18,8 +33,8 @@
     <div id="questionActions">
         <a class="btn btn-default btn-lg" href="/course/manage/<?= $courseId ?>" role="button">Manage course</a>&nbsp;&nbsp;&nbsp;
         <input class="btn btn-default btn-lg" type="submit" value="Update" name="update" />&nbsp;&nbsp;&nbsp;
-        <input class="btn btn-default btn-success btn-lg" type="submit" value="Good" name="<?= ANSWER_GOOD ?>" />&nbsp;&nbsp;&nbsp;
-        <input class="btn btn-default btn-danger btn-lg" type="submit" value="Bad" name="<?= ANSWER_BAD ?>" />&nbsp;&nbsp;&nbsp;
+        <input id="goodAnswerButton" class="btn btn-default btn-success btn-lg" type="submit" value="Good" name="<?= ANSWER_GOOD ?>" />&nbsp;&nbsp;&nbsp;
+        <input id="badAnswerButton" class="btn btn-default btn-danger btn-lg" type="submit" value="Bad" name="<?= ANSWER_BAD ?>" />&nbsp;&nbsp;&nbsp;
         <button id="showAnswerButton" class="btn btn-default btn-info btn-lg"/>Show answer</button>&nbsp;&nbsp;&nbsp;
         <input type="hidden" name="questionId" value="<?= $questionId ?>" />
     </div>
