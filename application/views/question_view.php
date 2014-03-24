@@ -7,6 +7,10 @@
         });
 
         $("body").keyup(function(ev) {
+            if ($(ev.target).is('input, textarea, select')) {
+                return;
+            }
+
             if (ev.which == 32) {
                 // 32 = space
                 $("#showAnswerButton").click();
